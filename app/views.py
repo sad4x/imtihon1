@@ -23,6 +23,15 @@ def delete(request,id):
     return redirect('/')
 
 def edit(request, id):
+    if request.POST:
+        title = request.POST.get('title')
+        time = request.POST.get('time')
+        desc = request.POST.get('desc')
+        status = request.POST.get('status')
+
+        ToDo.objects.filter(id=id).update(title=title, time=time, desc=desc,status=status)
+        return redirect('/')
+
     context = {
         'todo': ToDo.objects.get(id=id)
     }

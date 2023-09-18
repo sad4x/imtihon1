@@ -23,5 +23,5 @@ urlpatterns = [
     path('', todo),
     path('add/', adding),
     path('delete/<int:id>/',delete),
-    path('edit/<>')
+    path('edit/<int:id>/',edit)
 ]
